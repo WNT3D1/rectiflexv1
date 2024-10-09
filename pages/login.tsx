@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import styles from '../styles/Login.module.css'; // Updated for CSS module
+<h1>Debugging Login Page</h1>
 
 const Login = () => {
   const router = useRouter();
