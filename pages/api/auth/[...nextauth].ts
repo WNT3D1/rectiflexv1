@@ -10,26 +10,25 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        // Replace this with actual authentication logic
         const users = [
           {
-            id: '1', // Ensure this is a string
+            id: '1',  // Make sure this is a string
             name: 'Admin',
             username: 'admin',
-            password: 'admin', // Use hashed passwords in production
+            password: 'admin',  // Use hashed passwords in production
             role: 'admin',
           },
         ];
 
-        // Find user matching the provided credentials
         const user = users.find(
-          (user) => user.username === credentials?.username && user.password === credentials?.password
+          (user) =>
+            user.username === credentials?.username &&
+            user.password === credentials?.password
         );
 
-        // If user is found, return user object, otherwise return null
         if (user) {
           return {
-            id: user.id,        // Ensure id is a string
+            id: user.id,
             name: user.name,
             username: user.username,
             role: user.role,
@@ -43,24 +42,24 @@ export default NextAuth({
   callbacks: {
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.sub;
+        session.user.id = token.id;  // Assign token id to session.user.id
         session.user.role = token.role;  // Attach role to session
       }
       return session;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.role = user.role;
+        token.id = user.id;  // Assign user id to JWT token
+        token.role = user.role;  // Attach user role to JWT token
       }
       return token;
     },
   },
   pages: {
-    signIn: '/login',  // Redirect users to a custom login page
+    signIn: '/login',  // Custom login page
   },
   session: {
-    strategy: 'jwt',
+    strategy: 'jwt',  // Use JWT for session handling
   },
-  secret: process.env.NEXTAUTH_SECRET,  // Ensure you have a valid secret in your .env file
+  secret: process.env.NEXTAUTH_SECRET,  // Set your secret in .env
 });
