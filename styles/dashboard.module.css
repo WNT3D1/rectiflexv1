@@ -1,65 +1,70 @@
-/* Container for the whole layout */
 .container {
     display: flex;
     min-height: 100vh;
-    background-color: #1e1e1e;
-    color: #fff;
+    background-color: #f4f4f4;
 }
 
-/* Sidebar */
 .sidebar {
+    width: 200px;
     background-color: #2d2d2d;
-    width: 80px;
-    padding: 20px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: #fff;
+    padding-top: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
-.sidebar ul {
-    list-style: none;
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.navList {
+    list-style-type: none;
     padding: 0;
 }
 
-.sidebar ul li {
+.navList li {
     margin: 20px 0;
 }
 
-.sidebar ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
-
-.sidebar ul li i {
-    font-size: 1.5rem;
+.navList li a {
     color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
 }
 
-/* Main content area */
+.navList li a:hover {
+    background-color: #4caf50;
+}
+
 .mainContent {
-    flex-grow: 1;
+    margin-left: 200px;
     padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    flex: 1;
 }
 
-/* Filter Section */
 .filterContainer {
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.filterContainer label {
-    margin-right: 10px;
+.filterContainer select {
+    padding: 5px;
 }
 
-/* Task List */
 .taskList {
-    grid-column: span 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .taskTable {
@@ -68,36 +73,19 @@
 }
 
 .taskTable th, .taskTable td {
-    border: 1px solid #444;
     padding: 10px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
 .taskTable th {
-    background-color: #3e3e3e;
+    background-color: #f0f0f0;
 }
 
-.taskTable td {
-    color: #fff;
-}
-
-/* Chart Section */
 .chartContainer {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.chartContainer h3 {
-    margin-right: 20px;
-}
-
-/* Cards and boxes */
-.card {
-    background-color: #2d2d2d;
-    color: #fff;
+    margin-top: 40px;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
