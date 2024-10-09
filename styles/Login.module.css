@@ -1,51 +1,60 @@
+/* Center the login container vertically and horizontally */
 .loginContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
+/* Center and adjust logo size */
 .logoContainer {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
+    margin-bottom: 20px;
 }
 
 .logo {
-  max-width: 200px; /* Adjust logo size here */
-  height: auto;
+    max-width: 150px;  /* Smaller logo size */
+    height: auto;
 }
 
+/* Form container styling */
 .loginForm {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
 }
 
+/* Input fields styling */
 .loginForm input {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
+/* Login button styling */
 .loginForm button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .loginForm button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
+}
+
+/* Sign Up Link styling */
+.signUpLink {
+    margin-top: 15px;
+    text-align: center;
 }
