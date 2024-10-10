@@ -1,91 +1,86 @@
-.container {
-    display: flex;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
-
+/* Sidebar styles */
 .sidebar {
-    width: 200px;
-    background-color: #2d2d2d;
-    color: #fff;
-    padding-top: 20px;
-    height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
+    height: 100%;
+    width: 60px; /* Fixed width */
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo img {
-    max-width: 150px;
-}
-
-.navList {
+.sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-.navList li {
-    margin: 20px 0;
-}
-
-.navList li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-}
-
-.navList li a:hover {
-    background-color: #4caf50;
-}
-
-.mainContent {
-    margin-left: 200px;
-    padding: 40px;
-    flex: 1;
-}
-
-.filterContainer {
-    display: flex;
-    justify-content: space-between;
+.sidebar ul li {
     margin-bottom: 20px;
 }
 
-.filterContainer select {
-    padding: 5px;
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.taskList {
-    background-color: #fff;
+.sidebar ul li a i {
+    font-size: 24px; /* Icon size */
+}
+
+.mainContent {
+    margin-left: 60px; /* Same as sidebar width */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 60px); /* Remaining width */
+    background-color: #f8f8f8;
 }
 
-.taskTable {
-    width: 100%;
-    border-collapse: collapse;
+h1 {
+    font-size: 24px;
 }
 
-.taskTable th, .taskTable td {
+.filterContainer,
+.taskList,
+.chartContainer {
+    margin-bottom: 20px;
+}
+
+.tableContainer {
+    margin-top: 20px;
+}
+
+.taskTable th,
+.taskTable td {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
-.taskTable th {
-    background-color: #f0f0f0;
+.chartContainer {
+    display: flex;
+    justify-content: center;
 }
 
-.chartContainer {
-    margin-top: 40px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.chartContainer h3 {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
 }
