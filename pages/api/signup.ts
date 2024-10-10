@@ -30,7 +30,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const usersCollection = db.collection('users');
 
       // Check if the user already exists
-      const existingUser = await usersCollection.findOne({ email });
+      if (typeof email !== 'string') {
+        return res.status(400).json({ error: 'Invalid email format' });
+      }
+      const existingUser = await usersCollection.findOne({ email: { $eq: email } });
       if (existingUser) {
         return res.status(400).json({ error: 'User already exists' });
       }
