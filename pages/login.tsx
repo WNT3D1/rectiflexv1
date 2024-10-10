@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import styles from '../styles/Login.module.css'; // Updated for CSS module
-<h1>Debugging Login Page</h1>
+import styles from '../styles/Login.module.css'; // Ensure this path is correct
 
 const Login = () => {
   const router = useRouter();
-  const [credentials, setCredentials] = useState({
-    username: '',
-    password: '',
-  });
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,18 +18,15 @@ const Login = () => {
     if (res?.error) {
       alert('Invalid credentials');
     } else {
-      router.push('/dashboard'); // Redirect to dashboard on successful login
+      router.push('/dashboard');
     }
   };
 
   return (
     <div className={styles.loginContainer}>
-      {/* Logo Container */}
       <div className={styles.logoContainer}>
         <img src="/rectiflex.png" alt="Rectiflex Logo" className={styles.logo} />
       </div>
-
-      {/* Login Form */}
       <form onSubmit={handleLogin} className={styles.loginForm}>
         <input
           type="text"
@@ -50,9 +43,7 @@ const Login = () => {
           required
         />
         <button type="submit">Login</button>
-
-        {/* Sign Up Link */}
-        <p className={styles.signUpLink}>
+        <p>
           Don&apos;t have an account? <a href="/signup">Sign Up</a>
         </p>
       </form>
