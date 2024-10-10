@@ -25,7 +25,11 @@ const CompanySetup = () => {
 
     const handleLogoChange = (e) => {
         const file = e.target.files[0];
-        setLogo(file);
+        if (file && file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) { // Validate file type and size (5MB limit)
+            setLogo(file);
+        } else {
+            alert('Please upload a valid image file (PNG, JPEG) with size up to 5MB.');
+        }
     };
 
     const uploadLogo = async () => {
