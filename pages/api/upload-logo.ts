@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import AWS from 'aws-sdk';
 import formidable from 'formidable';
 import fs from 'fs';
+import path from 'path';
 
 // AWS S3 configuration
 AWS.config.update({
@@ -29,7 +30,13 @@ async function uploadLogo(req: NextApiRequest, res: NextApiResponse) {
         }
 
         const file = files.logo;  // Change to correct file reference
-        const fileStream = fs.createReadStream(file.filepath);
+        const safeDir = '/tmp/uploads';  // Define a safe directory for uploads
+        const resolvedPath = path.resolve(safeDir, path.basename(file.filepath));
+        if (!resolvedPath.startsWith(safeDir)) {
+            console.error('Invalid file path:', file.filepath);
+            return res.status(400).json({ message: 'Invalid file path' });
+        }
+        const fileStream = fs.createReadStream(resolvedPath);
 
         const params = {
             Bucket: process.env.AWS_S3_BUCKET,
