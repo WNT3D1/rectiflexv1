@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';  // Ensure useEffect is imported correctly
+import DOMPurify from 'dompurify';
 import styles from '../styles/companySetup.module.css';
 
 const CompanySetup = () => {
@@ -87,7 +88,7 @@ const CompanySetup = () => {
                 <div className={styles.formGroup}>
                     <label>Company Logo:</label>
                     <input type="file" accept="image/*" onChange={handleLogoChange} />
-                    {logo && <img src={URL.createObjectURL(logo)} alt="Company Logo" className={styles.previewImage} />}
+                    {logo && <img src={DOMPurify.sanitize(URL.createObjectURL(logo))} alt="Company Logo" className={styles.previewImage} />}
                 </div>
 
                 {/* Company Name */}
